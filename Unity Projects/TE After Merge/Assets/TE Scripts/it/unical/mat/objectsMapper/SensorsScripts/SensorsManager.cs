@@ -101,7 +101,7 @@ namespace ThinkEngine
                 for(int i = 0; i < _sensorsInstances.Count; i++)
                 {
                     _sensorsInstances[i].Update();
-                    _sensorsInstances[i].Map();
+                    Debug.Log(_sensorsInstances[i].Map());
                 }
             }
         }

@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 2
+    serializedVersion: 3
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,12 +117,57 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    buildHeightMesh: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &655608924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655608925}
+  - component: {fileID: 655608926}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &655608925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655608924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 8.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &655608926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655608924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18039a35ad503894b9935e9eb29ef4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _x: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,11 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6446672dedfbd844bb435ff5d6052565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  i: 0
-  d: 0
-  s: 
   list: 
-  array1: 010000000200000003000000
+  d: 0
+  _example2: {fileID: 655608924}
 --- !u!114 &804677808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,72 +342,91 @@ MonoBehaviour:
     Count: 1
   - myStrings:
     - Example
-    - i
+    - _example2
     Count: 2
   - myStrings:
     - Example
-    - array2
-    Count: 2
+    - _example2
+    - Example2
+    Count: 3
   - myStrings:
     - Example
-    - array1
+    - _example2
+    - Example2
+    - _x
+    Count: 4
+  - myStrings:
+    - Example
+    - d
     Count: 2
   - myStrings:
     - Example
     - list
-    Count: 2
-  - myStrings:
-    - Example
-    - s
-    Count: 2
-  - myStrings:
-    - Example
-    - d
     Count: 2
   _toMapProperties:
   - myStrings:
     - Example
-    - i
-    Count: 2
+    - _example2
+    - Example2
+    - _x
+    Count: 4
   - myStrings:
     - Example
-    - array2
-    Count: 2
-  - myStrings:
-    - Example
-    - array1
+    - d
     Count: 2
   - myStrings:
     - Example
     - list
     Count: 2
-  - myStrings:
-    - Example
-    - s
-    Count: 2
-  - myStrings:
-    - Example
-    - d
-    Count: 2
+  _propertyFeatures:
+  - property:
+      myStrings:
+      - Example
+      - _example2
+      - Example2
+      - _x
+      Count: 4
+    windowWidth: 200
+    _propertyAlias: GameObject_Example2__x
+    propertyAliasHash: 1035922870
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - Example
+      - d
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: GameObject_d
+    propertyAliasHash: -1528105820
+    operation: 0
+    specificValue: 
+    counter: 0
+  - property:
+      myStrings:
+      - Example
+      - list
+      Count: 2
+    windowWidth: 200
+    _propertyAlias: GameObject_list
+    propertyAliasHash: -240153524
+    operation: 0
+    specificValue: 
+    counter: 0
   _configurationName: gameObjectSensor
   isInvariant: 0
   isFixedSize: 0
-  operationPerPropertyIndexes: 9f5fad64064c2b4784ec31f6b38e3b0ef34b4477104c2b47fb4b2b47
-  operationPerPropertyOperations: 00000000000000000000000000000000000000000000000000000000
-  specificValuePerPropertyIndexes: 9f5fad64064c2b4784ec31f6b38e3b0ef34b4477104c2b47fb4b2b47
-  specificValuePerPropertyValues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   _serializableSensorsTypes:
-  - m_Name: gameObjectSensor0
-    m_AssemblyQualifiedName: ThinkEngine.gameObjectSensor0, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_AssemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 4bc8a5a2759ccc140a8840f8bad5b22b, type: 3}
+    typeName: ThinkEngine.GameObjectSensor0, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: 7e2265abfe35f334eb4e98a75a2a8dac, type: 3}
+    typeName: ThinkEngine.GameObjectSensor1, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - scriptAsset: {fileID: 11500000, guid: e82b0a9f6033b1043a20be29dea4ae7e, type: 3}
+    typeName: ThinkEngine.GameObjectSensor2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &804677810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,9 +479,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -491,7 +561,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1502783337
 MonoBehaviour:

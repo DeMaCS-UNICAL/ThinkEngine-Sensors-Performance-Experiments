@@ -271,11 +271,14 @@ namespace ThinkEngine
                 }
             }
 
-            if (!currentPropertyFeatures.specificValue.Equals(""))
+            if (currentPropertyFeatures.specificValue != null)
             {
-                addedText = string.Concat(addedText,
-                    string.Format("" +
-                    "{0}specificValue = Convert.ChangeType(\"{5}\", mapper.ConvertingType);{1}", GetTabs(1), Environment.NewLine, currentPropertyFeatures.specificValue));
+                if (!currentPropertyFeatures.specificValue.Equals(""))
+                {
+                    addedText = string.Concat(addedText,
+                        string.Format("" +
+                        "{0}specificValue = Convert.ChangeType(\"{2}\", mapper.ConvertingType);{1}", GetTabs(1), Environment.NewLine, currentPropertyFeatures.specificValue));
+                }
             }
 
             return text.Replace("INITIALIZATION", addedText);
@@ -309,7 +312,7 @@ namespace ThinkEngine
                 addedText = string.Concat(addedText, "" +
                     string.Format("" +
                     "{0}object operationResult = operation(values, specificValue, counter);{1}" +
-                    "{0}return string.Format(mappingTemplate, mapper.BasicMap(operationResult));", GetTabs(1), Environment.NewLine));
+                    "{0}return string.Format(mappingTemplate, BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult));", GetTabs(1), Environment.NewLine));
             }
             else if(mapperType.IsSubclassOf(typeof(CollectionMapper)))
             {
@@ -331,7 +334,7 @@ namespace ThinkEngine
                     "{0}{{{1}" +
                         "{2}if(!isIndexActive[i]) continue;{1}" +
                         "{2}object operationResult = operation(values[i], specificValue, counter);{1}" +
-                        "{2}mapping = string.Concat(mapping, string.Format(mappingTemplate,{3} mapper.BasicMap(operationResult)));{1}" +
+                        "{2}mapping = string.Concat(mapping, string.Format(mappingTemplate,{3} BasicTypeMapper.GetMapper(operationResult.GetType()).BasicMap(operationResult)));{1}" +
                     "{0}}}{1}" +
                     "{0}return mapping;", GetTabs(1), Environment.NewLine, GetTabs(2), indicies));
             }
@@ -410,8 +413,17 @@ namespace ThinkEngine
                 text = string.Concat(text, "" +
                     string.Format("{3}{0} {1}{2} = {4}{5}", propertyHierarchyTypeNames[i], propertyHierarchyNames[i], i, GetTabs(baseOfTabs), propertyHierarchyNames[i - 1], i - 1));
 
-                text = string.Concat(text, "" +
-                    string.Format(".{0};\n", propertyHierarchyNames[i]));
+                if (propertyHierarchyTypeNames[i - 1].Equals("GameObject"))
+                {
+                    text = string.Concat(text, "" +
+                        string.Format(".GetComponent<{0}>();\n", propertyHierarchyTypeNames[i]));
+                }
+                else
+                {
+                    text = string.Concat(text, "" +
+                        string.Format(".{0};\n", propertyHierarchyNames[i]));
+                }
+
                 
                 if (arePropertiesPrimitive[i]) continue;
 
